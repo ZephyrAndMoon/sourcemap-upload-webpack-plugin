@@ -14,17 +14,17 @@ npm install sourcemap-upload-webpack-plugin --save-dev
 ## 📝 Use
 
 ```js
-const SourcemapUploadPlugin = require("sourcemap-upload-webpack-plugin ");
+const SourcemapUploadPlugin = require('sourcemap-upload-webpack-plugin ')
 
 module.exports = {
-  plugins: [
-    new SourcemapUploadPlugin({
-      url: "https://www.xxxx.com",
-      uploadPath: path.resolve(__dirname, "xxxx"),
-      patterns: [/\.map$/], // This is optional
-    }),
-  ],
-};
+	plugins: [
+		new SourcemapUploadPlugin({
+			url: 'https://www.xxxx.com',
+			uploadPath: path.resolve(__dirname, 'xxxx'),
+			patterns: [/\.map$/], // This is optional
+		}),
+	],
+}
 ```
 
 <br/>
@@ -52,3 +52,19 @@ Path of the folder where the files need to be uploaded
 **type：Array\<RegExp>**
 
 Regular expressions for matching files, it will default to `[/\.map$/]` if patterns is not specified.
+
+<br />
+
+## requestOption
+
+**type：Object**
+
+additional configuration parameters for file upload requests.
+
+Contains the following sub-parameters:
+
+-   `data:` other parameters passed by form-data except for the file.
+
+-   `header:` request header.
+
+-   `other:` other parameters supported by axios
