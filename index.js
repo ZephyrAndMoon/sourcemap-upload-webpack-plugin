@@ -1,3 +1,3 @@
-const SourcemapUploadWebpackPlugin = require("./src/plugin");
+const SourcemapUploadWebpackPlugin = require('./src/plugin')
 
-module.exports = SourcemapUploadWebpackPlugin;
+module.exports = SourcemapUploadWebpackPlugin
