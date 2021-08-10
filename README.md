@@ -21,7 +21,9 @@ module.exports = {
 		new SourcemapUploadPlugin({
 			url: 'https://www.xxxx.com',
 			uploadPath: path.resolve(__dirname, 'xxxx'),
-			patterns: [/\.map$/], // This is optional
+			// The following are all optional
+			patterns: [/\.map$/],
+			requestOption: {},
 		}),
 	],
 }
@@ -37,7 +39,6 @@ module.exports = {
 
 Server url of upload files.
 
-<br />
 
 ## uploadPath
 
@@ -45,7 +46,6 @@ Server url of upload files.
 
 Path of the folder where the files need to be uploaded
 
-<br />
 
 ## patterns
 
@@ -53,15 +53,14 @@ Path of the folder where the files need to be uploaded
 
 Regular expressions for matching files, it will default to `[/\.map$/]` if patterns is not specified.
 
-<br />
 
 ## requestOption
 
 **type：Object**
 
-additional configuration parameters for file upload requests.
+Additional configuration parameters for file upload requests.
 
-Contains the following sub-parameters:
+contains the following sub-parameters:
 
 -   `data:` other parameters passed by form-data except for the file.
 
