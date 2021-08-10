@@ -1,6 +1,12 @@
 <h1 align="center">Sourcemap Upload Webpack Plugin</h1>
 <p align="center">A webpack plugin for uploading sourcemap files</p>
 
+<div align="center">
+
+[简体中文](https://github.com/ZephyrAndMoon/sourcemap-upload-webpack-plugin/blob/master/README_zh.md) &#124; English
+
+</div>
+
 <br/>
 
 # Getting Started
@@ -39,20 +45,17 @@ module.exports = {
 
 Server url of upload files.
 
-
 ## uploadPath
 
 **type：String（required）**
 
 Path of the folder where the files need to be uploaded
 
-
 ## patterns
 
 **type：Array\<RegExp>**
 
-Regular expressions for matching files, it will default to `[/\.map$/]` if patterns is not specified.
-
+Regular expressions array for matching files, it will default to `[/\.map$/]` if patterns is not specified.
 
 ## requestOption
 
