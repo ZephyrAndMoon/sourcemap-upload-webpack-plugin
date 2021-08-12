@@ -32,16 +32,16 @@ class SourcemapUploadWebpackPlugin {
 			})
 
 			// execute when packing error
-			archive.on('error', function(err) {
-				throw err
+			archive.on('error', err => {
+				throw Error(err)
 			})
 
 			// execute when packing is complete
 			archive.on('end', async () => {
+				console.info('Packed successfully, uploading files now...')
 				await uploadFile({ url, path, requestOption })
 				deleteFile(path)
 			})
-			archive.directory('subdir/', false)
 
 			archive.pipe(fs.createWriteStream(path))
 
@@ -49,7 +49,7 @@ class SourcemapUploadWebpackPlugin {
 			const sourceMapPaths = readDir(uploadPath, patterns)
 			sourceMapPaths.forEach(p => {
 				archive.append(fs.createReadStream(p), {
-					name: `sourcemap/${p.replace(uploadPath, '')}`,
+					name: `source/${p.replace(uploadPath, '')}`,
 				})
 			})
 			archive.finalize()

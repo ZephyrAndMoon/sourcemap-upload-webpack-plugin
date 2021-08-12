@@ -9,25 +9,26 @@ module.exports = {
 	 * Uploading files by axios
 	 */
 	uploadFile: async ({ url, path, requestOption = {} }) => {
-		const { data = {}, header = {}, other = {} } = requestOption
-		let formData = new FormData()
-		if (Object.keys(data).length > 0) {
-			for (let key in data) {
-				formData.append(key, data[key])
+		try {
+			const { data = {}, header = {}, other = {} } = requestOption
+			let formData = new FormData()
+			if (Object.keys(data).length > 0) {
+				for (let key in data) {
+					formData.append(key, data[key])
+				}
 			}
-		}
-		formData.append('file', fs.createReadStream(path))
-		axios({
-			...other,
-			url,
-			method: 'post',
-			data: formData,
-			headers: { ...formData.getHeaders(), ...header },
-		})
-			.then(res => console.info(JSON.stringify(res.data)))
-			.catch(error => {
-				throw error
+			formData.append('file', fs.createReadStream(path))
+			const res = await axios({
+				...other,
+				url,
+				method: 'post',
+				data: formData,
+				headers: { ...formData.getHeaders(), ...header },
 			})
+			console.info(JSON.stringify(res.data))
+		} catch (error) {
+			throw error
+		}
 	},
 	/**
 	 * Recursive reading of folders
