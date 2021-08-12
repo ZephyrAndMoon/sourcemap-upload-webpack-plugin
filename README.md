@@ -1,5 +1,4 @@
 <h1 align="center">Sourcemap Upload Webpack Plugin</h1>
-<p align="center">A webpack plugin for uploading sourcemap files</p>
 
 <div align="center">
 
@@ -12,6 +11,8 @@
 # Introduction
 
 This is a `webpack` plug-in that uploads the resources to a specified server after the project is built. Use `archiver` to compress a `zip` package and upload it in `form-data` format. By default, the "source-map" resource is uploaded. To upload other types of resource files, you can change the parameter "patterns".
+
+<br/>
 
 # Getting Started
 

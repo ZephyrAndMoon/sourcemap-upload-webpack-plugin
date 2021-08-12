@@ -1,5 +1,4 @@
 <h1 align="center">Sourcemap Upload Webpack Plugin</h1>
-<p align="center">一个将 sourcemap 映射资源文件上传的webpack插件</p>
 
 <div align="center">
 
@@ -12,6 +11,8 @@
 # 简介
 
 这是一款将项目构建完成后的资源上传到指定服务器的 webpack 插件。通过 archiver 压缩成 zip 格式的压缩包，以 form-data 形式进行上传，默认上传 sourcemap 资源。如果想要上传其他类型的资源文件，可以通过更改参数 patterns 来达到目的。
+
+<br/>
 
 # 开始
 
