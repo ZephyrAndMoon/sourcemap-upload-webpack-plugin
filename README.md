@@ -9,6 +9,10 @@
 
 <br/>
 
+# Introduction
+
+This is a `webpack` plug-in that uploads the resources to a specified server after the project is built. Use `archiver` to compress a `zip` package and upload it in `form-data` format. By default, the "source-map" resource is uploaded. To upload other types of resource files, you can change the parameter "patterns".
+
 # Getting Started
 
 ## 📦 Install
@@ -17,22 +21,22 @@
 npm install sourcemap-upload-webpack-plugin --save-dev
 ```
 
-## 📝 Use
+## 📝 Usage
 
 ```js
-const SourcemapUploadPlugin = require('sourcemap-upload-webpack-plugin ')
+const SourcemapUploadPlugin = require('sourcemap-upload-webpack-plugin ');
 
 module.exports = {
-	plugins: [
-		new SourcemapUploadPlugin({
-			url: 'https://www.xxxx.com',
-			uploadPath: path.resolve(__dirname, 'xxxx'),
-			// The following are all optional
-			patterns: [/\.map$/],
-			requestOption: {},
-		}),
-	],
-}
+  plugins: [
+    new SourcemapUploadPlugin({
+      url: 'https://www.xxxx.com',
+      uploadPath: path.resolve(__dirname, 'xxxx'),
+      // The following are all optional
+      patterns: [/\.map$/],
+      requestOption: {},
+    }),
+  ],
+};
 ```
 
 <br/>
@@ -65,8 +69,8 @@ Additional configuration parameters for file upload requests.
 
 contains the following sub-parameters:
 
--   `data:` other parameters passed by form-data except for the file.
+- `data:` other parameters passed by form-data except for the file.
 
--   `header:` request header.
+- `header:` request header.
 
--   `other:` other parameters supported by axios
+- `other:` other parameters supported by axios

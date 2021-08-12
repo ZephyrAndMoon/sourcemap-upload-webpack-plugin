@@ -9,6 +9,10 @@
 
 <br/>
 
+# 简介
+
+这是一款将项目构建完成后的资源上传到指定服务器的 webpack 插件。通过 archiver 压缩成 zip 格式的压缩包，以 form-data 形式进行上传，默认上传 sourcemap 资源。如果想要上传其他类型的资源文件，可以通过更改参数 patterns 来达到目的。
+
 # 开始
 
 ## 📦 安装
@@ -20,19 +24,19 @@ npm install sourcemap-upload-webpack-plugin --save-dev
 ## 📝 使用
 
 ```js
-const SourcemapUploadPlugin = require('sourcemap-upload-webpack-plugin ')
+const SourcemapUploadPlugin = require('sourcemap-upload-webpack-plugin ');
 
 module.exports = {
-	plugins: [
-		new SourcemapUploadPlugin({
-			url: 'https://www.xxxx.com',
-			uploadPath: path.resolve(__dirname, 'xxxx'),
-			// 下面的参数是可选项
-			patterns: [/\.map$/],
-			requestOption: {},
-		}),
-	],
-}
+  plugins: [
+    new SourcemapUploadPlugin({
+      url: 'https://www.xxxx.com',
+      uploadPath: path.resolve(__dirname, 'xxxx'),
+      // 下面的参数是可选项
+      patterns: [/\.map$/],
+      requestOption: {},
+    }),
+  ],
+};
 ```
 
 <br/>
@@ -65,8 +69,8 @@ module.exports = {
 
 包含以下子参数:
 
--   `data:` 除了文件以外通过 form-data 发送的其他请求参数
+- `data:` 除了文件以外通过 form-data 发送的其他请求参数
 
--   `header:` 请求头
+- `header:` 请求头
 
--   `other:` 其他的 axios 支持的配置参数
+- `other:` 其他的 axios 支持的配置参数
