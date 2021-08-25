@@ -25,6 +25,8 @@ class SourcemapUploadWebpackPlugin {
 		if (patterns && !typeOf(patterns) === 'array') {
 			throw Error('The "patterns" parameter type is incorrect')
 		}
+
+		// execute on build completion
 		compiler.hooks.done.tap('upload-sourcemap-plugin', status => {
 			const archive = archiver('zip', {
 				gzip: true,
@@ -45,7 +47,6 @@ class SourcemapUploadWebpackPlugin {
 
 			archive.pipe(fs.createWriteStream(path))
 
-			// execute on build completion
 			const sourceMapPaths = readDir(uploadPath, patterns)
 			sourceMapPaths.forEach(p => {
 				archive.append(fs.createReadStream(p), {

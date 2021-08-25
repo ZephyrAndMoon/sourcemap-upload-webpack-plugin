@@ -1,7 +1,7 @@
 {
   "name": "sourcemap-upload-webpack-plugin",
-  "version": "1.0.1",
-  "description": "A webpack plugin for uploading sourcemap files",
+  "version": "1.0.2",
+  "description": "A webpack plugin for uploading source files",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
